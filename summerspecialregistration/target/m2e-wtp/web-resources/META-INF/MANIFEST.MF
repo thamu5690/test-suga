@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: summerspecialwishlist
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: ADMIN
+Implementation-Vendor-Id: org.vit.vtop
+Build-Jdk: 1.8.0_321
+Implementation-URL: http://projects.spring.io/spring-boot/summerspecia
+ lwishlist/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

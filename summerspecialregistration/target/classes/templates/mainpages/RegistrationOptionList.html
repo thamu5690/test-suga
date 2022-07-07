@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<base th:href="@{${session.baseURL}}" /> 
+</head>
+<body class="hold-transition skin-blue-light sidebar-mini fixed">
+	<div class="" th:fragment="section">
+		<script th:inline="javascript">
+		/*<![CDATA[*/
+									
+			var showFlag = [[${showFlag}]];
+			var info = [[${info}]];
+			
+			if ((info != null) && (info != ""))
+			{
+				swal({
+			    	title: info,
+			    	type : 'success',
+			    	confirmButtonColor: '#3085d6'
+				},
+				
+				function(button) 
+				{			
+				    if (button == true) 
+				    {
+				    	window.setTimeout(function ()
+				    	{
+				    		
+				    	}, 0);		    			    	
+				    }
+				});
+			}
+			
+			
+		/*]]>*/
+		</script>
+
+		<div class="margin-homepage">
+			<div class="container">				
+				<form id="regForm">				
+				<div class="reg-box">
+					<h3 style="border-top-left-radius: 10px; border-top-right-radius: 10px;">Course Registration Option</h3>					
+
+					<th:block th:if="${(regularFlag == 1) and (ProgramGroupCode != 'RP') and (ProgramGroupCode != 'IEP') and (registrationMethod == 'CAL')}">					
+						<p class="radio-check"><input class="radio-btn" type="radio" name="registrationOption" id="registrationOption" value="PC" />Programme Core</p>
+						<p class="radio-check"><input class="radio-btn" type="radio" name="registrationOption" id="registrationOption1" value="UC" />University Core</p>
+						<p class="radio-check"><input class="radio-btn" type="radio" name="registrationOption" id="registrationOption2" value="PE" />Programme Elective</p>
+						<p class="radio-check"><input class="radio-btn" type="radio" name="registrationOption" id="registrationOption3" value="UE" />University Elective</p>
+						<p class="radio-check"><input class="radio-btn" type="radio" name="registrationOption" id="registrationOption4" value="NC" />Non Credit Course</p>
+						<p class="radio-check"><input class="radio-btn" type="radio" name="registrationOption" id="registrationOption5" value="BC" />Bridge Course</p>
+						<p class="radio-check"><input class="radio-btn" type="radio" name="registrationOption" id="registrationOption6" value="RR" />Re - Registration</p>
+					</th:block>
+					
+					
+					<th:block th:if="${(regularFlag == 1) and (ProgramGroupCode != 'RP') and (ProgramGroupCode != 'IEP') and (registrationMethod != 'CAL')}">
+						<p class="radio-check"><input type="radio" name="registrationOption" class="radio-btn" id="registrationOption" value="RGR" />Regular</p>					
+						<p class="radio-check"><input type="radio" name="registrationOption" class="radio-btn" id="registrationOption1" value="RR" />Re - Registration</p>
+						<p class="radio-check"><input type="radio" name="registrationOption" class="radio-btn" id="registrationOption2" value="FFCSCAL" />FFCS to CAL Course Equivalence</p>					
+					</th:block>
+					
+					<th:block th:if="${(regularFlag == 2) and (ProgramGroupCode != 'RP') and (ProgramGroupCode != 'IEP') and (registrationMethod == 'CAL')}">					
+						<p class="radio-check"><input type="radio" name="registrationOption" class="radio-btn" id="registrationOption" value="RR" />Re - Registration</p>
+					</th:block>
+					
+					<th:block th:if="${(regularFlag == 2) and (ProgramGroupCode != 'RP') and (ProgramGroupCode != 'IEP') and (registrationMethod != 'CAL')}">					
+						<p class="radio-check"><input type="radio" name="registrationOption" class="radio-btn" id="registrationOption" value="RR" />Re - Registration</p>
+						<p class="radio-check"><input type="radio" name="registrationOption" class="radio-btn" id="registrationOption1" value="FFCSCAL" />FFCS to CAL Course Equivalence</p>				
+					</th:block>
+										
+					<th:block th:if="${(ProgramGroupCode == 'RP') or (ProgramGroupCode == 'IEP')}">					
+						<p class="radio-check"><input type="radio" name="registrationOption" class="radio-btn" id="registrationOption" value="RGR" />Regular</p>
+						<p class="radio-check"><input type="radio" name="registrationOption" class="radio-btn" id="registrationOption1" value="RR" />Re - Registration</p>
+					</th:block>
+					 
+					<p>
+						<th:block>
+							<div id="info" style="color:red; text-align:center;"></div>
+						</th:block>
+					</p>					
+					
+					<div class="bottom-header" style="text-align: center;">
+						<button type="button" onclick="viewRegistrationOption();" >Submit</button>
+					</div>
+				</div>
+				</form>
+
+				<br />
+			</div>
+			<br />
+			<br />
+			<th:block>
+				<style>
+					.radio-check
+					{
+						padding-left:40px;
+						margin: 10px;
+					}
+					.radio-btn
+					{
+						margin:6px 9px 0px 0px;
+					}
+				</style>
+			</th:block>
+		</div>
+	</div>
+</body>
+</html>
